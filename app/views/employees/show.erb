@@ -1,0 +1,8 @@
+<%= content_tag(:h1,@employee.full_name)%>
+<ul>
+<%= content_tag(:li,"Alias: #{@employee.alias}")%>
+<%= content_tag(:li,"Office: #{@employee.alias}")%>
+<%= content_tag(:li,"Title: #{@employee.title}")%>
+<%= content_tag(:li,"Dog: #{@employee.dog.name}")%>
+</ul>
+<%= image_tag(@employee.img_url, alt:"Picture of #{@employee.first_name}")%>

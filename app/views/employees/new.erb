@@ -1,0 +1,36 @@
+<%= content_tag(:h1, "Create an Employee") %>
+
+<ul>
+    <% @errors.each do |category,error| %>
+        <%= content_tag(:li,category.titleize)%>
+        <ul>
+            <% error.each do |message| %>
+                <%= content_tag(:li,message)%>
+            <% end %>
+        </ul>
+    <% end %>
+</ul>
+
+<%= form_with model: Employee.new do |f| %>
+    
+    <%= f.label :name %> (First and Last)
+    <%= f.text_field :first_name %> <%= f.text_field :last_name %>
+    <br><br>
+    <%= f.label :alias %>
+    <%= f.text_field :alias %>
+    <br><br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br><br>
+    <%= f.label :office %>
+    <%= f.text_field :office %>
+    <br><br>
+    <%= f.label :image %> URL
+    <%= f.text_field :img_url %>
+    <br><br>
+    <%= f.label :dog %>
+    <%= collection_select(:employee, :dog_id, @dogs, :id, :name)%>
+    <br><br>
+    <%= f.submit %>
+
+<% end %>

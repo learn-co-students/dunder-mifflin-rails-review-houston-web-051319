@@ -1,0 +1,13 @@
+<h1>All Da Doggos</h1>
+
+<ol>
+    <% @dogs.each do |d| %>
+        <li><%= link_to d.name, dog_path(d.id) %></li>
+    <% end %>
+</ol>
+
+<%= form_with method: 'post', url: '/dogs/sort' do %>
+    Sort dogs by the number of employees each dog belongs to?
+    <%= select_tag(:sort,( options_for_select([ ['Yes', 1] , ['No', 2] ], @sort) ) ) %>
+    <%= submit_tag "Reload" %>
+<% end %>

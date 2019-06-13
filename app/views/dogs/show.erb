@@ -1,0 +1,11 @@
+<%= content_tag(:h1,@dog.name) %>
+</ul>
+    <%= content_tag(:li,"Breed: #{@dog.breed}") %>
+    <%= content_tag(:li,"Age Range: #{@dog.age}") %>
+</ul>
+<h2>Employees</h2>
+<ul>
+    <% @dog.employees.each do |employee| %>
+        <%= content_tag(:li,employee.full_name) %>
+    <% end %>
+</ul>
