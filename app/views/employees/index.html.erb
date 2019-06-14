@@ -1,0 +1,42 @@
+<% @employees.each do | employee |%>
+    
+    <a href= <%= "/employees/#{employee.id}" %>><h1><%="#{employee.first_name}#{employee.last_name}"%></h1></a>
+
+    <a href= <%= "/employees/#{employee.id}/edit" %>><h1>Edit employee</h1></a>
+      <%end%>
+
+      <form method="POST" action="/employees">
+    <div>
+        <label>First Name</label>
+        <input name="employee[first_name]" type="text"/>
+    </div>
+        <div>
+        <label>Last Name</label>
+        <input name="employee[last_name]" type="text"/>
+    </div>
+        <div>
+        <label>Title</label>
+        <input name="employee[title]" type="text"/>
+    </div>
+    <div>
+    <label>Alias</label>
+    <input name="employee[alias]" type="text"/>
+</div>
+<div>
+<label>Office</label>
+<input name="employee[office]" type="text"/>
+</div>
+    <div>
+        <label>Dog</label>
+        <% authors_array = Dog.all.map { |dog| [dog.name, dog.id] } %>
+        <%= collection_select :employee, :dog_id, Dog.all, :id, :name %>
+    </div>
+    </div>
+        <div>
+        <label>Image Url</label>
+        <input name="employee[img_url]" type="text"/>
+    </div>
+    <button>Submit</button>
+</form>
+  
+  
